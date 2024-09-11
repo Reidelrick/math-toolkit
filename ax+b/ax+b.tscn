@@ -1,0 +1,106 @@
+[gd_scene load_steps=3 format=3 uid="uid://jubr336x5vjk"]
+
+[ext_resource type="Script" path="res://ax+b/ax+b.gd" id="1_8na4a"]
+[ext_resource type="Theme" uid="uid://1bssqutv3q3s" path="res://Assets/Theme.tres" id="1_miic8"]
+
+[node name="ax+b" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_miic8")
+script = ExtResource("1_8na4a")
+
+[node name="All" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Input" type="HBoxContainer" parent="All"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="A" type="VBoxContainer" parent="All/Input"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AxLabel" type="Label" parent="All/Input/A"]
+layout_mode = 2
+size_flags_vertical = 7
+text = "x1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Ax" type="SpinBox" parent="All/Input/A"]
+layout_mode = 2
+size_flags_vertical = 3
+step = 0.0
+allow_greater = true
+allow_lesser = true
+
+[node name="AyLabel" type="Label" parent="All/Input/A"]
+layout_mode = 2
+size_flags_vertical = 7
+text = "f(x1)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Ay" type="SpinBox" parent="All/Input/A"]
+layout_mode = 2
+size_flags_vertical = 3
+step = 0.0
+allow_greater = true
+allow_lesser = true
+
+[node name="B" type="VBoxContainer" parent="All/Input"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BxLabel" type="Label" parent="All/Input/B"]
+layout_mode = 2
+size_flags_vertical = 7
+text = "x2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Bx" type="SpinBox" parent="All/Input/B"]
+layout_mode = 2
+size_flags_vertical = 3
+step = 0.0
+allow_greater = true
+allow_lesser = true
+
+[node name="ByLabel" type="Label" parent="All/Input/B"]
+layout_mode = 2
+size_flags_vertical = 7
+text = "f(x2)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="By" type="SpinBox" parent="All/Input/B"]
+layout_mode = 2
+size_flags_vertical = 3
+step = 0.0
+allow_greater = true
+allow_lesser = true
+
+[node name="Button" type="Button" parent="All/Input"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Calculate"
+
+[node name="Result" type="Label" parent="All"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 6
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="All/Input/Button" to="." method="_on_button_pressed"]

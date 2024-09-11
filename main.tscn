@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=3 uid="uid://bf4xo8ft7glut"]
+
+[ext_resource type="Theme" uid="uid://1bssqutv3q3s" path="res://Assets/Theme.tres" id="1_ffohu"]
+[ext_resource type="Script" path="res://main.gd" id="2_ijm7a"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ffohu")
+script = ExtResource("2_ijm7a")
+
+[node name="Buttons" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ax+b" type="Button" parent="Buttons"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+text = "ax+b"
+
+[node name="Binary" type="Button" parent="Buttons"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+text = "Binary converter"
+
+[node name="ax+by+c" type="Button" parent="Buttons"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+text = "ax+by+c"
+
+[node name="Graph" type="Button" parent="Buttons"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+text = "Graph"
+
+[connection signal="pressed" from="Buttons/ax+b" to="." method="_on_axb_pressed"]
+[connection signal="pressed" from="Buttons/Binary" to="." method="_on_binary_pressed"]
+[connection signal="pressed" from="Buttons/Graph" to="." method="_on_graph_pressed"]

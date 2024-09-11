@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://1bssqutv3q3s"]
+
+[ext_resource type="FontFile" uid="uid://ckruxdui4fwf0" path="res://Assets/Lexend-VariableFont_wght.ttf" id="1_0yh82"]
+
+[resource]
+default_font = ExtResource("1_0yh82")
+default_font_size = 60

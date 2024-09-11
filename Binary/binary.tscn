@@ -1,0 +1,69 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpc1rcl60ia1e"]
+
+[ext_resource type="Script" path="res://Binary/binary.gd" id="1_fhs5t"]
+[ext_resource type="Theme" uid="uid://1bssqutv3q3s" path="res://Assets/Theme.tres" id="1_lif7l"]
+
+[node name="Binary" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_lif7l")
+script = ExtResource("1_fhs5t")
+
+[node name="All" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Int" type="VBoxContainer" parent="All"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Input" type="SpinBox" parent="All/Int"]
+layout_mode = 2
+size_flags_vertical = 3
+allow_greater = true
+
+[node name="Calculate" type="Button" parent="All/Int"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+size_flags_vertical = 3
+text = "Calculate"
+
+[node name="Result" type="Label" parent="All/Int"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VSeparator" type="VSeparator" parent="All"]
+layout_mode = 2
+
+[node name="Bin" type="VBoxContainer" parent="All"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Input" type="TextEdit" parent="All/Bin"]
+custom_minimum_size = Vector2(98, 31)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Calculate" type="Button" parent="All/Bin"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Calculate"
+
+[node name="Result" type="Label" parent="All/Bin"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[connection signal="pressed" from="All/Int/Calculate" to="." method="_on_int_calculate_pressed"]
+[connection signal="pressed" from="All/Bin/Calculate" to="." method="_on_bin_calculate_pressed"]

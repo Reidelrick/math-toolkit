@@ -1,0 +1,20 @@
+
+
+tant que div != 0
+	var divider = 0
+	while 1==1:
+		si div/divier.type = str
+			divider += 1
+		sinon:
+			div /= divider
+			break
+			
+			
+			
+[
+	0,
+	0,
+	0,
+	0,
+	...
+]
