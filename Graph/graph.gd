@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var graph_scale : float = 15
+@export var graph_scale : float = 100
 var center : Vector2
 
 func update_graph(ops : Dictionary):

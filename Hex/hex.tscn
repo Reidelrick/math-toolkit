@@ -1,0 +1,76 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyqlwpcesmv4i"]
+
+[ext_resource type="Theme" uid="uid://1bssqutv3q3s" path="res://Assets/Theme.tres" id="1_blaej"]
+[ext_resource type="Script" path="res://Hex/hex.gd" id="1_vlmpo"]
+
+[node name="Hex" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_blaej")
+script = ExtResource("1_vlmpo")
+
+[node name="All" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Bin" type="VBoxContainer" parent="All"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="All/Bin"]
+layout_mode = 2
+text = "Hex to Bin"
+
+[node name="Input" type="LineEdit" parent="All/Bin"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Calculate" type="Button" parent="All/Bin"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+size_flags_vertical = 3
+text = "Calculate"
+
+[node name="Result" type="LineEdit" parent="All/Bin"]
+layout_mode = 2
+size_flags_vertical = 3
+editable = false
+
+[node name="VSeparator" type="VSeparator" parent="All"]
+layout_mode = 2
+
+[node name="Hex" type="VBoxContainer" parent="All"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="All/Hex"]
+layout_mode = 2
+text = "Bin to Hex"
+
+[node name="Input" type="LineEdit" parent="All/Hex"]
+custom_minimum_size = Vector2(98, 31)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Calculate" type="Button" parent="All/Hex"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Calculate"
+
+[node name="Result" type="LineEdit" parent="All/Hex"]
+layout_mode = 2
+size_flags_vertical = 3
+editable = false
+
+[connection signal="pressed" from="All/Bin/Calculate" to="." method="_on_bin_calculate_pressed"]
+[connection signal="pressed" from="All/Hex/Calculate" to="." method="_on_hex_calculate_pressed"]

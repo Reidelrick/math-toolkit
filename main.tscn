@@ -33,11 +33,11 @@ size_flags_horizontal = 6
 size_flags_vertical = 6
 text = "Binary converter"
 
-[node name="ax+by+c" type="Button" parent="Buttons"]
+[node name="Hex" type="Button" parent="Buttons"]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
-text = "ax+by+c"
+text = "Hex"
 
 [node name="Graph" type="Button" parent="Buttons"]
 layout_mode = 2
@@ -47,4 +47,5 @@ text = "Graph"
 
 [connection signal="pressed" from="Buttons/ax+b" to="." method="_on_axb_pressed"]
 [connection signal="pressed" from="Buttons/Binary" to="." method="_on_binary_pressed"]
+[connection signal="pressed" from="Buttons/Hex" to="." method="_on_hex_pressed"]
 [connection signal="pressed" from="Buttons/Graph" to="." method="_on_graph_pressed"]

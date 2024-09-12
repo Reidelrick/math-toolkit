@@ -21,3 +21,7 @@ func _on_binary_pressed():
 
 func _on_graph_pressed():
 	get_tree().change_scene_to_file("res://Graph/graph.tscn")
+
+
+func _on_hex_pressed() -> void:
+	get_tree().change_scene_to_file("res://Hex/hex.tscn")

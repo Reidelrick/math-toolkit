@@ -28,6 +28,10 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 
+[node name="Int to Bin" type="Label" parent="All/Int"]
+layout_mode = 2
+text = "Int to Bin"
+
 [node name="Input" type="SpinBox" parent="All/Int"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -50,6 +54,10 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="All/Bin"]
+layout_mode = 2
+text = "Bin to Int"
 
 [node name="Input" type="TextEdit" parent="All/Bin"]
 custom_minimum_size = Vector2(98, 31)

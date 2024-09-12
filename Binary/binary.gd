@@ -1,14 +1,14 @@
 extends Control
 
 func abqr(a:float, b:float):
-	
-	
 	var q = floor(a/b)
 	var r:float = (
 		(a/b)-
 		floor(a/b)
 		)*b
-	return [q, r]
+	print(q, ", ", r)
+	get_tree().quit()
+	#return [q, r]
 
 func bin_to_int(num: String):
 	var bin_array = num.split("")
@@ -21,6 +21,7 @@ func bin_to_int(num: String):
 	return result
 	
 func int_to_bin(num: int):
+	abqr(num, 16)
 	var i = num
 	var bin = []
 	while i != 0:
