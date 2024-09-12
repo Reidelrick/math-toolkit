@@ -1,44 +1,32 @@
 extends Node2D
 
-@export var graph_scale : float = 100
+@export var graph_scale : float = 25
 var center : Vector2
 
-func update_graph(ops : Dictionary):
+func update_graph(expression:String):
 	var graph_curve = Line2D.new()
 	graph_curve.width = 2
 	for p in range(center.x*graph_scale*2):
-		var x = p/graph_scale-center.x
-		var y = 0
+		var x = float(p/graph_scale-center.x)
+		var y : float
 		
-		var op_i := 0
-		for op in ops:
-			if ops.values()[op_i] == 'x':
-				if op == "x":
-					y *= x
-				elif op == "+":
-					y += x
-				elif op == "^":
-					y **= x
-				elif op == "sin":
-					y += sin(int(ops.values()[op_i]))
-				elif op == "cos":
-					y += sin(int(ops.values()[op_i]))
-				elif op == "tan":
-					y += sin(int(ops.values()[op_i]))
-			else:
-				if op == "x":
-					y *= int(ops.values()[op_i])
-				elif op == "+":
-					y += int(ops.values()[op_i])
-				elif op == "^":
-					y **= int(ops.values()[op_i])
-				elif op == "sin":
-					y += sin(int(ops.values()[op_i]))
-				elif op == "cos":
-					y += sin(int(ops.values()[op_i]))
-				elif op == "tan":
-					y += sin(int(ops.values()[op_i]))
-			op_i += 1
+		var y_exp_txt := expression
+		var y_exp = Expression.new()
+		
+		var y_exp_txt_split = y_exp_txt.split()
+		y_exp_txt = ""
+		for c in y_exp_txt_split:
+			if c == "x":c = str(x)
+			y_exp_txt+=c
+		
+		print(y_exp_txt)
+		var error = y_exp.parse(y_exp_txt)
+		if error != OK:
+			print(y_exp.get_error_text())
+			return
+		var result = y_exp.execute()
+		if not y_exp.has_execute_failed():
+			y = result
 		
 		graph_curve.add_point(Vector2(
 			x*graph_scale,
