@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://bv5c4hpkn3kf"]
+
+[ext_resource type="Script" path="res://Graph/CurveParam.gd" id="1_1yr5c"]
+[ext_resource type="Theme" uid="uid://1bssqutv3q3s" path="res://Assets/Theme.tres" id="1_mtgls"]
+
+[node name="CurveParam" type="Panel"]
+custom_minimum_size = Vector2(100, 100)
+theme = ExtResource("1_mtgls")
+script = ExtResource("1_1yr5c")
+
+[node name="delete" type="Button" parent="."]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+offset_right = 29.0
+offset_bottom = 25.0
+size_flags_horizontal = 4
+
+[node name="Label" type="LineEdit" parent="."]
+custom_minimum_size = Vector2(75, 25)
+layout_mode = 2
+offset_left = 25.0
+offset_top = -0.5
+offset_right = 100.0
+offset_bottom = 24.5
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 7
+editable = false
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="."]
+custom_minimum_size = Vector2(100, 75)
+layout_mode = 2
+offset_top = 21.0
+offset_right = 100.0
+offset_bottom = 100.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[connection signal="pressed" from="delete" to="." method="_delete_pressed"]
+[connection signal="color_changed" from="ColorPickerButton" to="." method="_color_changed"]

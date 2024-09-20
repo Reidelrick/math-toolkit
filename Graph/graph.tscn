@@ -1,21 +1,70 @@
 [gd_scene load_steps=3 format=3 uid="uid://dxxl1h7qui5ep"]
 
 [ext_resource type="Script" path="res://Graph/graph.gd" id="1_p3gi5"]
-[ext_resource type="PackedScene" uid="uid://spfguwxyxfeq" path="res://Graph/graph_ui.tscn" id="2_7yi30"]
+[ext_resource type="Theme" uid="uid://1bssqutv3q3s" path="res://Assets/Theme.tres" id="2_g4qkg"]
 
 [node name="Graph" type="Node2D"]
 script = ExtResource("1_p3gi5")
+graduation_length = 5.0
 
 [node name="CamMover" type="AnimatableBody2D" parent="."]
 sync_to_physics = false
 
 [node name="Camera2D" type="Camera2D" parent="CamMover"]
-offset = Vector2(500, 0)
 position_smoothing_enabled = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="UI" parent="CanvasLayer" instance=ExtResource("2_7yi30")]
+[node name="Coords" type="Label" parent="CanvasLayer"]
 unique_name_in_owner = true
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_right = 40.0
+grow_vertical = 0
+theme = ExtResource("2_g4qkg")
 
-[node name="Line2D" type="Line2D" parent="."]
+[node name="Expression" type="HBoxContainer" parent="CanvasLayer"]
+unique_name_in_owner = true
+offset_right = 1152.0
+offset_bottom = 50.0
+theme = ExtResource("2_g4qkg")
+
+[node name="Expression" type="LineEdit" parent="CanvasLayer/Expression"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 30
+
+[node name="Color" type="ColorPickerButton" parent="CanvasLayer/Expression"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+edit_alpha = false
+
+[node name="Curves" type="ScrollContainer" parent="CanvasLayer"]
+custom_minimum_size = Vector2(100, 550)
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -550.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme = ExtResource("2_g4qkg")
+
+[node name="Curves" type="VBoxContainer" parent="CanvasLayer/Curves"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="CoordsLines" type="Line2D" parent="."]
+closed = true
+width = 1.0
+
+[connection signal="text_submitted" from="CanvasLayer/Expression/Expression" to="." method="_on_expression_text_submitted"]
